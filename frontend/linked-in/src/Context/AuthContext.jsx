@@ -4,7 +4,7 @@ import React from "react";
 import { createContext } from "react";
 export const authDataContext = createContext();
 const AuthContext = ({ children }) => {
-  const serverUrl = "http://localhost:3000/";
+  const serverUrl = "http://localhost:3000";
   let value = {
     serverUrl
   };

@@ -111,7 +111,7 @@ const loginUserController = async (req, res) => {
     // 6. response
     res.status(201).json({
       success: true,
-      message: "user registred successfully",
+      message: "user login successfully",
       user,
       token,
     });

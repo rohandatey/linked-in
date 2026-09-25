@@ -20,7 +20,8 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      let result = await axios.post(serverUrl + "/api/v1/auth/signup",
+      let result = await axios.post(
+        serverUrl + "/api/v1/auth/signup",
         {
           firstName,
           lastName,
@@ -28,11 +29,18 @@ const Signup = () => {
           email,
           password,
         },
-        { withCredentials: true });
+        { withCredentials: true },
+      );
       console.log(result.data);
-      // navigate("/"); 
+      setFirstName("");
+      setLastName("");
+      setUserName("");
+      setEmail("");
+      setPassword("");
+
+      // navigate("/");
     } catch (error) {
-      console.log(error);
+      console.log(error.response?.data);
     }
   };
 
@@ -63,7 +71,8 @@ const Signup = () => {
           required
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
-          className="w-full h-[50px] border-2 border-gray-500 text-gray-700 text-xl px-[20px] py-[10px] rounded-md"/>
+          className="w-full h-[50px] border-2 border-gray-500 text-gray-700 text-xl px-[20px] py-[10px] rounded-md"
+        />
 
         <input
           type="text"
@@ -108,8 +117,10 @@ const Signup = () => {
           SignUp
         </button>
 
-        <p className="flex items-center justify-center gap-2 cursor-pointer"
-          onClick={() => navigate("/login")}>
+        <p
+          className="flex items-center justify-center gap-2 cursor-pointer"
+          onClick={() => navigate("/login")}
+        >
           already have an account?
           <span className="text-blue-800 cursor-pointer">Login</span>
         </p>
